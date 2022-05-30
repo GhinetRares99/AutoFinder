@@ -1,0 +1,29 @@
+<app-top-bar></app-top-bar>
+<br><br>
+<div class="account-container">
+    <h1 id="title-account">Your account information</h1>
+    <br><br>
+    <div class="account-inner">
+        <div class="information1">
+                <h3>First name: {{this.session_user[0].firstName}}</h3>
+                <h3>Last name: {{this.session_user[0].lastName}}</h3>
+                <h3>Username: {{this.session_user[0].userName}}</h3>
+                <h3>Password: {{this.session_user[0].password}}</h3>
+                <h3>Email: {{this.session_user[0].email}}</h3>
+                <h3>Phone number: {{this.session_user[0].phoneNumber}}</h3>
+        </div>
+        <div class="information2">
+            <h3>Street name: {{this.session_user[0].streetName}}</h3>
+            <h3>Street number: {{this.session_user[0].streetNumber}}</h3>
+            <h3>City: {{this.session_user[0].city}}</h3>
+            <h3>State/Province: {{this.session_user[0].stateProvince}}</h3>
+            <h3>Country: {{this.session_user[0].country}}</h3>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="buttons">
+        <button class="edit-button" routerLink="../AccountEdit">Edit</button>
+        <button class="delete-button" (click)="DeleteUser()">Delete</button>
+        <button class="home-button" routerLink="">Home</button>
+    </div>
+</div>

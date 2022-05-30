@@ -1,0 +1,15 @@
+<div class="top-bar-container">
+    <span class="logo" routerLink="">AUT<i class="fa fa-car"></i>FINDER</span>
+    <div class="div_one" *ngIf="getSignedIn() != 'logged'">
+        <button class="signin-button" routerLink="../SignIn">Sign In</button>
+        <button class="signup-button" routerLink="../SignUp">Sign Up</button>
+    </div>
+    <div class="div_three" *ngIf="getSignedIn() == 'logged'">
+        <button class="sell-button" routerLink="../Sell">Sell</button>
+        <button class="your-sales-button" routerLink="../YourSales">Your sales</button>
+    </div>  
+    <div class="div_two" *ngIf="getSignedIn() == 'logged'">
+        <button class="account-button" routerLink="../Account">{{this.session_user[0].userName}}</button>
+        <button class="signout-button" routerLink="" (click)="SignOut()">Sign Out</button>
+    </div>
+</div>

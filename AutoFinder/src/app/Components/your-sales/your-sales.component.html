@@ -1,0 +1,48 @@
+<app-top-bar></app-top-bar>
+<br><br>
+<div class="your-sales-container">
+    <h1 id="title-your-sales">These are the vehicles you are trying to sell</h1>
+    <br><br>
+    <div class="vehicle" *ngFor="let vehicle of your_sales">
+        <div class="vh1">
+            <br>
+            <a href="{{ vehicle.vehicleThumbnail }}" class="fancybox" data-fancybox="your-sales-pics"><img src="{{ vehicle.vehicleThumbnail }}" id="pt"></a>
+            <a href="{{ vehicle.vehiclePhoto1 }}" class="fancybox" data-fancybox="your-sales-pics"><img src="{{ vehicle.vehiclePhoto1 }}" id="p1"></a>
+            <a href="{{ vehicle.vehiclePhoto2 }}" class="fancybox" data-fancybox="your-sales-pics" *ngIf="vehicle.vehiclePhoto2 != null"><img src="{{ vehicle.vehiclePhoto2 }}" id="p2"></a>
+            <a href="{{ vehicle.vehiclePhoto3 }}" class="fancybox" data-fancybox="your-sales-pics" *ngIf="vehicle.vehiclePhoto3 != null"><img src="{{ vehicle.vehiclePhoto3 }}" id="p3"></a>
+            <br><br>
+            <h2>{{ vehicle.vehicleCompany }} {{ vehicle.vehicleModel }}</h2>
+        </div>
+        <div class="vh2">
+            <br>
+            <p>Category: {{ vehicle.vehicleCategory }}</p>
+            <p>Price: {{ vehicle.vehiclePrice }}€</p>
+            <p>Fabrication year: {{ vehicle.vehicleFabricationYear }}</p>
+            <p>Fuel type: {{ vehicle.vehicleFuelType }}</p>
+            <p>Kilometres: {{ vehicle.vehicleKM }}km</p>
+            <p>Power: {{ vehicle.vehiclePower }}hp</p>
+            <p>Capacity: {{ vehicle.vehicleCapacity }}cm3</p>
+        </div>
+        <div class="vh3">
+            <br>
+            <p>Transmission: {{ vehicle.vehicleTransmission }}</p>
+            <p>Pollution norm: {{ vehicle.vehiclePollutionNorm }}</p>
+            <p>Doors: {{ vehicle.vehicleDoors }}</p>
+            <p>Warranty: {{ vehicle.vehicleWarranty }} months</p>
+            <p>Origin country: {{ vehicle.vehicleOriginCountry }}</p>
+            <p>First registration: {{ vehicle.vehicleFirstRegistration.replace("T00:00:00","") }}</p>
+            <p>Registered: {{ vehicle.vehicleRegistered }}</p>
+        </div>
+        <div class="vh4">
+            <button class="events-button" (click)="this.SetStoredVehicle(vehicle)" routerLink="../VehicleEvents">Events</button>
+            <br><br>
+            <button class="edit-button" (click)="this.SetStoredVehicle(vehicle)" routerLink="../VehicleEdit">Edit</button>
+            <br><br>
+            <button class="delete-button" (click)="DeleteVehicle(vehicle.vehicleID)">Delete</button>
+        </div>
+    </div>
+    <br><br>
+    <div class="buttons">
+        <button class="home-button" routerLink="">Home</button>
+    </div>
+</div>

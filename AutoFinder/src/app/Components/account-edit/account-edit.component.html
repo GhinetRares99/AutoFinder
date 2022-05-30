@@ -1,0 +1,159 @@
+<app-top-bar></app-top-bar>
+<br><br>
+<div class="edit-container">
+    <h1 id="title-edit">Edit your account information</h1>
+    <br><br>
+    <form [formGroup]="EditUser" (ngSubmit)="submitUserEdit()">
+        <div class="form-inner-edit">
+            <div class="edit1">
+                <div class="form-group">
+                    <label>First name:</label>
+                    <input type="text" class="form-control" placeholder="John" formControlName="firstname" [(ngModel)]="this.session_user[0].firstName">
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>Last name:</label>
+                    <input type="text" class="form-control" placeholder="Doe" formControlName="lastname" [(ngModel)]="this.session_user[0].lastName">
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>Username:</label>
+                    <input type="text" class="form-control" placeholder="default123" formControlName="username" [(ngModel)]="this.session_user[0].userName">
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="password" class="form-control" placeholder="password123"  formControlName="password" [(ngModel)]="this.session_user[0].password">
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="text" class="form-control" placeholder="john.doe@example.com"  formControlName="email" [(ngModel)]="this.session_user[0].email">
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>Phone:</label>
+                    <input type="text" class="form-control" placeholder="1234567890" formControlName="phonenumber" [(ngModel)]="this.session_user[0].phoneNumber">
+                </div>
+
+                <br>
+                
+            </div>
+            <div class="edit2">
+                <div class="form-group">
+                    <label>Street name:</label>
+                    <input type="text" class="form-control" placeholder="Some Street"  formControlName="streetname" [(ngModel)]="this.session_user[0].streetName">
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>Street number:</label>
+                    <input type="number" class="form-control" placeholder="000"  formControlName="streetnumber" min="1" [(ngModel)]="this.session_user[0].streetNumber">
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>City:</label>
+                    <input type="text" class="form-control" placeholder="City"  formControlName="city" [(ngModel)]="this.session_user[0].city">
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>State/Province:</label>
+                    <input type="text" class="form-control" placeholder="State/Province"  formControlName="stateprovince" [(ngModel)]="this.session_user[0].stateProvince">
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>Country:</label>
+                    <select class="form-control"  formControlName="country" [(ngModel)]="this.session_user[0].country">
+                        <option value="Albania">Albania</option>
+                        <option value="Andorra">Andorra</option>
+                        <option value="Armenia">Armenia</option>
+                        <option value="Austria">Austria</option>
+                        <option value="Azerbaijan">Azerbaijan</option>
+                        <option value="Belarus">Belarus</option>
+                        <option value="Belgium">Belgium</option>
+                        <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                        <option value="Bulgaria">Bulgaria</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Croatia">Croatia</option>
+                        <option value="Cyprus">Cyprus</option>
+                        <option value="Czechia">Czechia</option>
+                        <option value="Denmark">Denmark</option>
+                        <option value="Estonia">Estonia</option>
+                        <option value="Finland">Finland</option>
+                        <option value="France">France</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Greece">Greece</option>
+                        <option value="Hungary">Hungary</option>
+                        <option value="Iceland">Iceland</option>
+                        <option value="Ireland">Ireland</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Kazakhstan">Kazakhstan</option>
+                        <option value="Latvia">Latvia</option>
+                        <option value="Liechtenstein">Liechtenstein</option>
+                        <option value="Lithuania">Lithuania</option>
+                        <option value="Luxembourg">Luxembourg</option>
+                        <option value="Malta">Malta</option>
+                        <option value="Moldova">Moldova</option>
+                        <option value="Monaco">Monaco</option>
+                        <option value="Montenegro">Montenegro</option>
+                        <option value="Netherlands">Netherlands</option>
+                        <option value="North Macedonia">North Macedonia</option>
+                        <option value="Norway">Norway</option>
+                        <option value="Poland">Poland</option>
+                        <option value="Romania">Romania</option>
+                        <option value="Russia">Russia</option>
+                        <option value="San Marino">San Marino</option>
+                        <option value="Serbia">Serbia</option>
+                        <option value="Slovakia">Slovakia</option>
+                        <option value="Slovenia">Slovenia</option>
+                        <option value="Spain">Spain</option>
+                        <option value="Sweden">Sweden</option>
+                        <option value="Switzerland">Switzerland</option>
+                        <option value="Turkey">Turkey</option>
+                        <option value="Ukraine">Ukraine</option>
+                        <option value="United Kingdom">United Kingdom</option>
+                        <option value="United States">United States</option>
+                        <option value="Vatican City">Vatican City</option>
+                    </select>
+                </div>
+
+                <br>
+
+                
+            </div>
+
+        </div>
+        <div class="buttons">
+            <br>
+            <button type="submit" class="submit-button">Edit</button>
+            <button class="account-button" routerLink="../Account">Account</button> 
+        </div>
+    </form>
+</div>
+<br><br><br><br>
+<div class="edit-rules">
+    <h3>Rules:</h3>
+    <p>The username must be unique.</p>
+    <p>The password must have a minimum of 5 characters.</p>
+    <p>The phone number must have a maximum of 10 characters.</p>
+    <p>The street number must be positive.</p>
+    <p>All fields are mandatory.</p>
+</div>

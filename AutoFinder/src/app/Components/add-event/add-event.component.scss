@@ -1,0 +1,56 @@
+#title-add-event{
+    text-align: center;
+    font-family: Trebuchet MS;
+}
+
+label{
+    font-family: Trebuchet MS;
+}
+
+.form-inner-add-event{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+    max-width: 600px;
+}
+
+.buttons{
+    text-align: center;
+}
+
+.submit-button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: darkred;
+    color: white;
+    font-family: Trebuchet MS;
+    padding: 10px;
+    transition-duration: 0.3s;
+
+    &:hover {
+        background-color:rgb(112, 0, 0);
+    }
+
+}
+
+.events-button{
+    margin-left: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    font-family: Trebuchet MS;
+    padding: 10px;
+    transition-duration: 0.3s;
+
+    &:hover {
+        background-color:rgb(0, 0, 122);
+    }
+}
+
+.add-event-rules{
+    padding-left: 50px;
+}

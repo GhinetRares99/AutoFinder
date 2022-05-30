@@ -1,0 +1,26 @@
+<app-top-bar></app-top-bar>
+<br><br>
+<div class="vehicle-events-container">
+    <h1 id="title-vehicle-events">These are the major events in your vehicle's timeline</h1>
+    <br><br>
+    <div class="event" *ngFor="let ev of v_events">
+        <div class="e1">
+            <br>
+            <h3>Event description: {{ ev.eventDescription }}</h3>
+            <p>Event date: {{ ev.eventDate.replace("T00:00:00","") }}</p>
+        </div>
+        <div class="e2">
+            <br>
+            <button class="edit-button" (click)="this.SetStoredEvent(ev)" routerLink="../EditEvent">Edit</button>
+            <br><br>
+            <button class="delete-button" (click)="DeleteEvent(ev.eventID)">Delete</button>
+            <br><br>
+        </div>
+    </div>
+    <br><br>
+    <div class="buttons">
+        <button class="add-event-button" routerLink="../AddEvent">Add event</button>
+        <button class="your-sales-button" routerLink="../YourSales">Your sales</button>
+    </div>
+
+</div>

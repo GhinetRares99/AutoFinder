@@ -1,0 +1,30 @@
+<app-top-bar></app-top-bar>
+<br><br>
+<div class="sign-in-container">
+    <h1 id="title-sign-in">Connect to your account</h1>
+    <br><br>
+    <form [formGroup]="SignInUser" (ngSubmit)="submitUserSignIn()">
+        <div class="form-inner-sign-in">
+            <div class="form-group">
+                <label>Username:</label>
+                <input type="text" class="form-control" placeholder="default123" formControlName="username">
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password" class="form-control" placeholder="password123" formControlName="password">
+            </div>
+
+            <br>
+
+        </div>
+        <div class="buttons">
+            <br><br>
+            <button type="submit" class="submit-button">Sign In</button>
+            <button class="home-button" routerLink="">Home</button> 
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFinder", "AutoFinder\AutoFinder.csproj", "{40E6AE54-0CB7-418F-8326-FB873B732A30}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40E6AE54-0CB7-418F-8326-FB873B732A30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40E6AE54-0CB7-418F-8326-FB873B732A30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40E6AE54-0CB7-418F-8326-FB873B732A30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40E6AE54-0CB7-418F-8326-FB873B732A30}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D0712C3D-F680-440C-8619-5D396C4D75DA}
+	EndGlobalSection
+EndGlobal

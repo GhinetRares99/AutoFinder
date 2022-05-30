@@ -1,0 +1,258 @@
+<app-top-bar></app-top-bar>
+<br><br>
+<div class="sell-container">
+    <h1 id="title-sell">Sell a vehicle</h1>
+    <br><br>
+    <form [formGroup]="Sell" (ngSubmit)="submitVehicle()">
+        <div class="form-inner-sell">
+            <div class="sell1">
+                <div class="form-group">
+                    <label>Category:</label>
+                    <select class="form-control" formControlName="vehiclecategory">
+                        <option value="Car">Car</option>
+                        <option value="Van">Van</option>
+                        <option value="Motorcycle">Motorcycle</option>
+                        <option value="Truck">Truck</option>
+                        <option value="Agricultural equipment">Agricultural equipment</option>
+                    </select>
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>Company:</label>
+                    <input type="text" class="form-control" placeholder="Company" formControlName="vehiclecompany">
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>Model:</label>
+                    <input type="text" class="form-control" placeholder="Model" formControlName="vehiclemodel">
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>Price (in euros):</label>
+                    <input type="number" class="form-control" placeholder="Price" formControlName="vehicleprice" min="0">
+               </div>
+
+               <br>
+
+               <div class="form-group">
+                   <label>Fabrication year:</label>
+                   <input type="number" class="form-control" placeholder="Fabrication year" formControlName="vehiclefabricationyear" min="1875">
+               </div>
+
+               <br>
+
+               <div class="form-group">
+                   <label>Fuel:</label>
+                   <select class="form-control" formControlName="vehiclefueltype">
+                       <option value="Gasoline">Gasoline</option>
+                       <option value="Diesel">Diesel</option>
+                       <option value="Electric">Electric</option>
+                       <option value="Hybrid">Hybrid</option>
+                   </select>
+               </div>
+
+               <br>
+
+               <div class="form-group">
+                   <label>Kilometres:</label>
+                   <input type="number" class="form-control" placeholder="Kilometres" formControlName="vehiclekm" min="0">
+               </div>
+
+               <br>
+
+            </div>
+            <div class="sell2">
+                <div class="form-group">
+                    <label>Power (in hp):</label>
+                    <input type="number" class="form-control" placeholder="Power" formControlName="vehiclepower" min="1">
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>Capacity (in cm3):</label>
+                    <input type="number" class="form-control" placeholder="Capacity" formControlName="vehiclecapacity" min="1">
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>Transmission:</label>
+                    <select class="form-control" formControlName="vehicletransmission">
+                        <option value="Manual">Manual</option>
+                        <option value="Automatic">Automatic</option>
+                        <option value="Semi-automatic">Semi-automatic</option>
+                        <option value="CVT">CVT</option>
+                    </select>
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>Pollution norm:</label>
+                    <select id="pltn" class="form-control" formControlName="vehiclepollutionnorm">
+                        <option id="euro1" value="EURO 1">EURO 1</option>
+                        <option id="euro2" value="EURO 2">EURO 2</option>
+                        <option id="euro3" value="EURO 3">EURO 3</option>
+                        <option id="euro4" value="EURO 4">EURO 4</option>
+                        <option id="euro5" value="EURO 5">EURO 5</option>
+                        <option id="euro6" value="EURO 6">EURO 6</option>
+                    </select>
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>Doors:</label>
+                    <input type="number" class="form-control" placeholder="Doors" formControlName="vehicledoors" min="1">
+                </div>   
+                
+                <br>
+
+                <div class="form-group">
+                    <label>Color:</label>
+                    <input type="text" class="form-control" placeholder="Color" formControlName="vehiclecolor">
+                </div>   
+                
+                <br>
+
+                <div class="form-group">
+                    <label>Warranty (in months):</label>
+                    <input type="number" class="form-control" placeholder="Warranty" formControlName="vehiclewarranty" min="0">
+                </div>   
+                
+                <br>
+                
+            </div>
+            <div class="sell3">
+                <div class="form-group">
+                    <label>Country of origin:</label>
+                    <select class="form-control" formControlName="vehicleorigincountry">
+                        <option value="Albania">Albania</option>
+                        <option value="Andorra">Andorra</option>
+                        <option value="Armenia">Armenia</option>
+                        <option value="Austria">Austria</option>
+                        <option value="Azerbaijan">Azerbaijan</option>
+                        <option value="Belarus">Belarus</option>
+                        <option value="Belgium">Belgium</option>
+                        <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                        <option value="Bulgaria">Bulgaria</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Croatia">Croatia</option>
+                        <option value="Cyprus">Cyprus</option>
+                        <option value="Czechia">Czechia</option>
+                        <option value="Denmark">Denmark</option>
+                        <option value="Estonia">Estonia</option>
+                        <option value="Finland">Finland</option>
+                        <option value="France">France</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Greece">Greece</option>
+                        <option value="Hungary">Hungary</option>
+                        <option value="Iceland">Iceland</option>
+                        <option value="Ireland">Ireland</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Kazakhstan">Kazakhstan</option>
+                        <option value="Latvia">Latvia</option>
+                        <option value="Liechtenstein">Liechtenstein</option>
+                        <option value="Lithuania">Lithuania</option>
+                        <option value="Luxembourg">Luxembourg</option>
+                        <option value="Malta">Malta</option>
+                        <option value="Moldova">Moldova</option>
+                        <option value="Monaco">Monaco</option>
+                        <option value="Montenegro">Montenegro</option>
+                        <option value="Netherlands">Netherlands</option>
+                        <option value="North Macedonia">North Macedonia</option>
+                        <option value="Norway">Norway</option>
+                        <option value="Poland">Poland</option>
+                        <option value="Romania">Romania</option>
+                        <option value="Russia">Russia</option>
+                        <option value="San Marino">San Marino</option>
+                        <option value="Serbia">Serbia</option>
+                        <option value="Slovakia">Slovakia</option>
+                        <option value="Slovenia">Slovenia</option>
+                        <option value="Spain">Spain</option>
+                        <option value="Sweden">Sweden</option>
+                        <option value="Switzerland">Switzerland</option>
+                        <option value="Turkey">Turkey</option>
+                        <option value="Ukraine">Ukraine</option>
+                        <option value="United Kingdom">United Kingdom</option>
+                        <option value="United States">United States</option>
+                        <option value="Vatican City">Vatican City</option>
+                    </select>
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>First registration:</label>
+                    <input type="date" class="form-control" formControlName="vehiclefirstregistration">
+                </div>   
+                
+                <br>
+
+                <div class="form-group">
+                    <label>Registered:</label>
+                    <select class="form-control" formControlName="vehicleregistered">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>Thumbnail:</label>
+                    <input type="file" id="thumbnail-id" (change)="thumbnailChange($event)" class="form-control" accept="image/png, image/jpeg" formControlName="vehiclethumbnail">
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>Photo 1:</label>
+                    <input type="file" id="photoone-id" (change)="photooneChange($event)" class="form-control" accept="image/png, image/jpeg" formControlName="vehiclephoto1">
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>Photo 2 (optional):</label>
+                    <input type="file" id="phototwo-id" (change)="phototwoChange($event)" class="form-control" accept="image/png, image/jpeg" formControlName="vehiclephoto2">
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label>Photo 3 (optional):</label>
+                    <input type="file" id="photothree-id" (change)="photothreeChange($event)" class="form-control" accept="image/png, image/jpeg" formControlName="vehiclephoto3">
+                </div>
+
+                <br>
+
+            </div>
+
+
+        </div>
+        <div class="buttons">
+            <br>
+            <button type="submit" class="submit-button">Sell</button>
+            <button class="home-button" routerLink="">Home</button> 
+        </div>
+    </form>
+</div>
+<br><br><br><br>
+<div class="sell-rules">
+    <h3>Rules:</h3>
+    <p>The price must be higher than or equal to 0.</p>
+    <p>The power, capacity and the number of doors must be higher than or equal to 1.</p>
+    <p>The fabrication year must be at least 1875.</p>
+    <p>The number of months of warranty must be higher or equal to 0.</p>
+    <p>You must provide at least two photos of the vehicle.</p>
+    <p>The last two fields are optional, but all other fields are mandatory.</p>
+</div>

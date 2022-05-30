@@ -1,0 +1,68 @@
+<app-top-bar></app-top-bar>
+<br><br>
+<div class="vehicle-details-container">
+    <h1 id="title-vehicle-details">These are the details of the selected vehicle</h1>
+    <br><br>
+    <div class="vehicle-details-inner">
+        <div class="det1">
+            <a href="{{ this.stored_vehicle_details.vehicleThumbnail }}" class="fancybox" data-fancybox="details-pics"><img src="{{ this.stored_vehicle_details.vehicleThumbnail }}"></a>
+            <br><br>
+            <a href="{{ this.stored_vehicle_details.vehiclePhoto1 }}" class="fancybox" data-fancybox="details-pics"><img src="{{ this.stored_vehicle_details.vehiclePhoto1 }}"></a>
+            <br><br>
+            <a href="{{ this.stored_vehicle_details.vehiclePhoto2 }}" class="fancybox" data-fancybox="details-pics" *ngIf="this.stored_vehicle_details.vehiclePhoto2 != null"><img src="{{ this.stored_vehicle_details.vehiclePhoto2 }}"></a>
+            <br><br>
+            <a href="{{ this.stored_vehicle_details.vehiclePhoto3 }}" class="fancybox" data-fancybox="details-pics"><img *ngIf="this.stored_vehicle_details.vehiclePhoto3 != null" src="{{ this.stored_vehicle_details.vehiclePhoto3 }}"></a>
+        </div>
+        <div class="det2">
+            <h3>Category: {{ this.stored_vehicle_details.vehicleCategory }}</h3>
+            <h3>Company: {{ this.stored_vehicle_details.vehicleCompany }}</h3>
+            <h3>Model: {{ this.stored_vehicle_details.vehicleModel }}</h3>
+            <h3>Price: {{ this.stored_vehicle_details.vehiclePrice }}€</h3>
+            <h3>Fabrication year: {{ this.stored_vehicle_details.vehicleFabricationYear }}</h3>
+            <h3>Fuel type: {{ this.stored_vehicle_details.vehicleFuelType }}</h3>
+            <h3>Kilometres: {{ this.stored_vehicle_details.vehicleKM }}km</h3>
+            <h3>Power: {{ this.stored_vehicle_details.vehiclePower }}hp</h3>
+            <h3>Capacity: {{ this.stored_vehicle_details.vehicleCapacity }}cm3</h3>
+            <h3>Transmission: {{ this.stored_vehicle_details.vehicleTransmission }}</h3>
+            <h3>Pollution norm: {{ this.stored_vehicle_details.vehiclePollutionNorm }}</h3>
+            <h3>Doors: {{ this.stored_vehicle_details.vehicleDoors }}</h3>
+        </div>
+        <div class="det3">
+            <h3>Color : {{ this.stored_vehicle_details.vehicleColor }}</h3>
+            <h3>Warranty: {{ this.stored_vehicle_details.vehicleWarranty }} months</h3>
+            <h3>Origin country: {{ this.stored_vehicle_details.vehicleOriginCountry }}</h3>
+            <h3>First registration: {{ this.stored_vehicle_details.vehicleFirstRegistration.replace("T00:00:00","") }}</h3>
+            <h3>Registered: {{ this.stored_vehicle_details.vehicleRegistered }}</h3>
+            <h3 class="seller">Seller name: {{ this.vehicle_seller[0].userName }}</h3>
+            <h3 class="seller">Seller email: {{ this.vehicle_seller[0].email }}</h3> 
+            <h3 class="seller">Seller phone: {{ this.vehicle_seller[0].phoneNumber }}</h3>
+            <h3 class="seller">Seller address: {{ this.vehicle_seller[0].streetName }}, Nr.{{ this.vehicle_seller[0].streetNumber }}</h3>
+            <h3 class="seller">Seller city: {{ this.vehicle_seller[0].city }}</h3>
+            <h3 class="seller">Seller state/province: {{ this.vehicle_seller[0].stateProvince }}</h3>
+            <h3 class="seller">Seller country: {{ this.vehicle_seller[0].country }}</h3>
+       
+        </div>
+        <div class="det4">
+            <div *ngIf="getSignedIn() == 'logged'">
+                <button (click)="this.SetUser(this.vehicle_seller[0])" routerLink="../SendSMS">Send SMS</button>
+                <br><br>
+                <button (click)="this.SetUser(this.vehicle_seller[0])" routerLink="../SendEmail">Send email</button>
+            </div>
+            <div *ngIf="getSignedIn() != 'logged'">
+                <p>Sign in to send messages!</p>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="events">
+        <h2>Events:</h2>
+        <div class="events-inner" *ngFor="let ev of vehicle_events">
+            <h3>{{ ev.eventDate.replace("T00:00:00","") }}: {{ ev.eventDescription }}</h3>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="buttons">
+        <button class="home-button" routerLink="">Home</button>
+    </div>
+
+</div>

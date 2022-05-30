@@ -1,0 +1,35 @@
+<app-top-bar></app-top-bar>
+<br><br>
+<div class="add-event-container">
+    <h1 id="title-add-event">Add an event for your vehicle</h1>
+    <br><br>
+    <form [formGroup]="AddVehicleEvent" (ngSubmit)="submitEvent()">
+        <div class="form-inner-add-event">
+            <div class="form-group">
+                <label>Event description:</label>
+                <textarea style="resize:none;" rows="3" id="ev-desc" class="form-control" placeholder="Description" formControlName="eventdescription"></textarea>
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                <label>Event date:</label>
+                <input type="date" class="form-control" formControlName="eventdate">
+            </div>
+
+            <br>
+    
+        </div>
+        <div class="buttons">
+            <br>
+            <button type="submit" class="submit-button">Add</button>
+            <button class="events-button" routerLink="../VehicleEvents">Events</button>
+        </div>
+    </form>
+
+</div>
+<br><br><br><br>
+<div class="add-event-rules">
+    <h3>Rules:</h3>
+    <p>All fields are mandatory.</p>
+</div>
