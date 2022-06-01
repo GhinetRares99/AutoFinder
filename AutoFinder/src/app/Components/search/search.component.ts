@@ -13,44 +13,46 @@ export class SearchComponent implements OnInit {
 
   public vehicles: any = []
 
-  SearchVehicle = new FormGroup({
+  public category: string = ""
 
-    vehiclecategory: new FormControl('', Validators.nullValidator),
-    vehiclecompany: new FormControl('', Validators.nullValidator),
-    vehiclemodel: new FormControl('', Validators.nullValidator),
+  public company: string = ""
 
-    vehiclepricemin: new FormControl('', Validators.min(0)),
-    vehiclepricemax: new FormControl('', Validators.min(0)),
+  public model: string = ""
 
-    vehiclefabricationyearmin: new FormControl('', Validators.min(1875)),
-    vehiclefabricationyearmax: new FormControl('', Validators.min(1875)),
+  public pricemin: number = -1
+  public pricemax: number = -1
 
-    vehiclefueltype: new FormControl('', Validators.nullValidator),
+  public fabricationyearmin: number = -1
+  public fabricationyearmax: number = -1
 
-    vehiclekmmin: new FormControl('', Validators.min(0)),
-    vehiclekmmax: new FormControl('', Validators.min(0)),
+  public fueltype: string = ""
 
-    vehiclepowermin: new FormControl('', Validators.min(1)),
-    vehiclepowermax: new FormControl('', Validators.min(1)),
+  public kilometresmin: number = -1
+  public kilometresmax: number = -1
 
-    vehiclecapacitymin: new FormControl('', Validators.min(1)),
-    vehiclecapacitymax: new FormControl('', Validators.min(1)),
+  public powermin: number = -1
+  public powermax: number = -1
 
-    vehicletransmission: new FormControl('', Validators.nullValidator),
-    vehiclepollutionnorm: new FormControl('', Validators.nullValidator),
-    vehicledoors: new FormControl('', Validators.min(0)),
-    vehiclecolor: new FormControl('', Validators.nullValidator),
+  public capacitymin: number = -1
+  public capacitymax: number = -1
 
-    vehiclewarrantymin: new FormControl('', Validators.min(0)),
-    vehiclewarrantymax: new FormControl('', Validators.min(0)),
+  public transmission: string = ""
 
-    vehicleorigincountry: new FormControl('', Validators.nullValidator),
+  public pollutionnorm: string = ""
 
-    vehiclefirstregistrationmin: new FormControl('', Validators.nullValidator),
-    vehiclefirstregistrationmax: new FormControl('', Validators.nullValidator),
+  public doors: number = -1
 
-    vehicleregistered: new FormControl('', Validators.nullValidator),
-  })
+  public color: string = ""
+
+  public warrantymin: number = -1
+  public warrantymax: number = -1
+
+  public countryoforigin: string = ""
+
+  public firstregistrationmin: string = ""
+  public firstregistrationmax: string = ""
+
+  public registered: string = ""
 
   constructor(private SRC: SearchService, private STV: StoreVehicleService) { }
 
@@ -59,23 +61,40 @@ export class SearchComponent implements OnInit {
       this.vehicles = result
       console.log(this.vehicles)
     })
+
   }
 
   SetStoredVehicle(data:any){
     this.STV.setStoredVehicle(data)
   }
 
-  submitSearch(){
-    if(this.SearchVehicle.valid)
-    {
-      
-
-    }
-    else
-    {
-      window.alert("Invalid data!")
-    }
+  Reset(){
+    this.category = ""
+    this.company = ""
+    this.model = ""
+    this.pricemin = -1
+    this.pricemax = -1
+    this.fabricationyearmin = -1
+    this.fabricationyearmax = -1
+    this.fueltype = ""
+    this.kilometresmin = -1
+    this.kilometresmax = -1
+    this.powermin = -1
+    this.powermax = -1
+    this.capacitymin = -1
+    this.capacitymax = -1
+    this.transmission = ""
+    this.pollutionnorm = ""
+    this.doors = -1
+    this.color = ""
+    this.warrantymin = -1
+    this.warrantymax = -1
+    this.countryoforigin = ""
+    this.firstregistrationmin = ""
+    this.firstregistrationmax = ""
+    this.registered = ""
   }
+  
 
 
 

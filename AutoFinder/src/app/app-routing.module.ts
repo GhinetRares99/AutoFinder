@@ -5,6 +5,7 @@ import { AccountCreatedComponent } from './Components/account-created/account-cr
 import { AccountEditComponent } from './Components/account-edit/account-edit.component';
 import { AccountComponent } from './Components/account/account.component';
 import { AddEventComponent } from './Components/add-event/add-event.component';
+import { AdminComponent } from './Components/admin/admin.component';
 import { EditEventComponent } from './Components/edit-event/edit-event.component';
 import { EventAddedComponent } from './Components/event-added/event-added.component';
 import { HomeComponent } from './Components/home/home.component';
@@ -18,6 +19,7 @@ import { VehicleDetailsComponent } from './Components/vehicle-details/vehicle-de
 import { VehicleEditComponent } from './Components/vehicle-edit/vehicle-edit.component';
 import { VehicleEventsComponent } from './Components/vehicle-events/vehicle-events.component';
 import { YourSalesComponent } from './Components/your-sales/your-sales.component';
+import { AdminGuard } from './Guards/admin.guard';
 
 const routes: Routes = [
   
@@ -104,6 +106,12 @@ const routes: Routes = [
   {
     path: 'SendSMS',
     component: SendSMSComponent,
+  },
+
+  {
+    path: 'Admin',
+    component: AdminComponent,
+    canActivate: [AdminGuard],
   },
 
 ];

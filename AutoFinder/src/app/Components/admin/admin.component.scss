@@ -1,0 +1,129 @@
+#title-admin{
+    text-align: center;
+    font-family: Trebuchet MS;
+}
+
+.inputs{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+label{
+    font-family: Trebuchet MS;
+}
+
+.admin-inner{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.table-name{
+    text-align: center;
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table img{
+    width: 140px;
+    height: 80px;
+
+    transition-duration: 0.3s;
+
+    &:hover {
+        filter: brightness(90%);
+    }
+}
+
+th{
+    font-family: Trebuchet MS;
+    background-color: darkred;
+    color: white;
+}
+
+th, td{
+    text-align: left;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.buttons{
+    text-align: center;
+}
+
+.admin-button{
+    width: 115px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: rgb(118, 197, 223);
+    color: white;
+    font-family: Trebuchet MS;
+    padding: 10px;
+    transition-duration: 0.3s;
+
+    &:hover {
+        background-color:rgb(95, 156, 179);
+    } 
+}
+
+.edit-button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    font-family: Trebuchet MS;
+    padding: 10px;
+    transition-duration: 0.3s;
+
+    &:hover {
+        background-color:rgb(0, 100, 0);
+    } 
+}
+
+.delete-button, .reset-button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: darkred;
+    color: white;
+    font-family: Trebuchet MS;
+    padding: 10px;
+    transition-duration: 0.3s;
+
+    &:hover {
+        background-color:rgb(112, 0, 0);
+    }
+}
+
+.home-button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    font-family: Trebuchet MS;
+    padding: 10px;
+    transition-duration: 0.3s;
+
+    &:hover {
+        background-color:rgb(0, 0, 122);
+    }
+}
+
+.admin-vehicles{
+    overflow-x: scroll;
+    width: 100%;
+    overflow-y: scroll;
+    height: 400px;
+}
+
+
+

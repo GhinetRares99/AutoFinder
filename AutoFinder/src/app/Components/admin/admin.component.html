@@ -1,0 +1,185 @@
+<app-top-bar></app-top-bar>
+<br><br>
+<div class="admin-container">
+    <h1 id="title-admin">Welcome to the admin page, {{ this.session_user[0].userName }}!</h1>
+    <br><br>
+    <div class="admin-inner">
+
+        <h2 class="table-name">Users</h2>
+        <div class="inputs">
+            <div class="form-group">
+                <label>User ID:</label>
+                <input class="form-control" type="number" placeholder="User ID" min="0" [(ngModel)]="users_userid">
+            </div>
+            <div class="form-group">
+                <label>Username:</label>
+                <input class="form-control" type="text" placeholder="Username" [(ngModel)]="users_username"> 
+            </div>
+            <div class="reset">
+                <button class="reset-button" (click)="ResetUsers()">Reset</button>
+            </div>
+            <br>
+        </div>
+        <div class="admin-users">
+            <table class="users-table">
+                <tr>
+                    <th>ID</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Street name</th>
+                    <th>Street number</th>
+                    <th>City</th>
+                    <th>State/Province</th>
+                    <th>Country</th>
+                    <th>Admin</th>
+                    <th>Make admin</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr *ngFor="let u of admin_page_users">
+                    <td>{{ u.userID }}</td>
+                    <td>{{ u.firstName }}</td>
+                    <td>{{ u.lastName }}</td>
+                    <td>{{ u.userName }}</td>
+                    <td>{{ u.password }}</td>
+                    <td>{{ u.email }}</td>
+                    <td>{{ u.phoneNumber }}</td>
+                    <td>{{ u.streetName }}</td>
+                    <td>{{ u.streetNumber }}</td>
+                    <td>{{ u.city }}</td>
+                    <td>{{ u.stateProvince }}</td>
+                    <td>{{ u.country }}</td>
+                    <td>{{ u.isAdmin }}</td>
+                    <td> 
+                        <button class="admin-button" *ngIf="!u.isAdmin">Assign admin</button>
+                        <button class="admin-button" *ngIf="u.isAdmin">Remove admin</button> 
+                    </td>
+                    <td> <button class="edit-button">Edit</button> </td>
+                    <td> <button class="delete-button">Delete</button> </td>
+                </tr>
+            </table>
+        </div>
+
+        <br><br>
+
+        <h2 class="table-name">Vehicles</h2>
+        <div class="inputs">
+            <div class="form-group">
+                <label>Vehicle ID:</label>
+                <input class="form-control" type="number" min="0" placeholder="Vehicle ID" [(ngModel)]="vehicles_vehicleid">
+            </div>
+            <div class="form-group">
+                <label>User ID:</label>
+                <input class="form-control" type="number" min="0" placeholder="User ID" [(ngModel)]="vehicles_userid">
+            </div>
+            <div class="reset">
+                <button class="reset-button" (click)="ResetVehicles()">Reset</button>
+            </div>
+            <br>
+        </div>
+        <div class="admin-vehicles">
+            <table class="vehicles-table">
+                <tr>
+                    <th>ID</th>
+                    <th>UserID</th>
+                    <th>Category</th>
+                    <th>Company</th>
+                    <th>Model</th>
+                    <th>Price</th>
+                    <th>Fabrication year</th>
+                    <th>Fuel</th>
+                    <th>Kilometres</th>
+                    <th>Power</th>
+                    <th>Capacity</th>
+                    <th>Transmission</th>
+                    <th>Pollution norm</th>
+                    <th>Doors</th>
+                    <th>Color</th>
+                    <th>Warranty</th>
+                    <th>Origin country</th>
+                    <th>First registration</th>
+                    <th>Registered</th>
+                    <th>Thumbnail</th>
+                    <th>Photo 1</th>
+                    <th>Photo 2</th>
+                    <th>Photo 3</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr *ngFor="let v of admin_page_vehicles">
+                    <td>{{ v.vehicleID }}</td>
+                    <td>{{ v.userID }}</td>
+                    <td>{{ v.vehicleCategory }}</td>
+                    <td>{{ v.vehicleCompany }}</td>
+                    <td>{{ v.vehicleModel }}</td>
+                    <td>{{ v.vehiclePrice }}€</td>
+                    <td>{{ v.vehicleFabricationYear }}</td>
+                    <td>{{ v.vehicleFuelType }}</td>
+                    <td>{{ v.vehicleKM }}</td>
+                    <td>{{ v.vehiclePower }}hp</td>
+                    <td>{{ v.vehicleCapacity }}cm3</td>
+                    <td>{{ v.vehicleTransmission }}</td>
+                    <td>{{ v.vehiclePollutionNorm }}</td>
+                    <td>{{ v.vehicleDoors }}</td>
+                    <td>{{ v.vehicleColor }}</td>
+                    <td>{{ v.vehicleWarranty }} months</td>
+                    <td>{{ v.vehicleOriginCountry }}</td>
+                    <td>{{ v.vehicleFirstRegistration.replace("T00:00:00","") }}</td>
+                    <td>{{ v.vehicleRegistered }}</td>
+                    <td> <a href="{{ v.vehicleThumbnail }}" class="fancybox" data-fancybox="admin-vehicles-pics"><img src="{{ v.vehicleThumbnail }}"></a> </td>
+                    <td> <a href="{{ v.vehiclePhoto1 }}" class="fancybox" data-fancybox="admin-vehicles-pics"><img src="{{ v.vehiclePhoto1 }}"></a> </td>
+                    <td> <a href="{{ v.vehiclePhoto2 }}" class="fancybox" data-fancybox="admin-vehicles-pics" *ngIf="v.vehiclePhoto2 != null"><img src="{{ v.vehiclePhoto2 }}"></a> </td>
+                    <td> <a href="{{ v.vehiclePhoto3 }}" class="fancybox" data-fancybox="admin-vehicles-pics" *ngIf="v.vehiclePhoto3 != null"><img src="{{ v.vehiclePhoto3 }}"></a> </td>
+                    <td> <button class="edit-button">Edit</button> </td>
+                    <td> <button class="delete-button">Delete</button> </td>
+                </tr>
+            </table>
+        </div>
+
+        <br><br>
+
+        <h2 class="table-name">Events</h2>
+        <div class="inputs">
+            <div class="form-group">
+                <label>Event ID:</label>
+                <input class="form-control" type="number" min="0" placeholder="Event ID" [(ngModel)]="events_eventid">
+            </div>
+            <div class="form-group">
+                <label>Vehicle ID:</label>
+                <input class="form-control" type="number" min="0" placeholder="Vehicle ID" [(ngModel)]="events_vehicleid">
+            </div>
+            <div class="reset">
+                <button class="reset-button" (click)="ResetEvents()">Reset</button>
+            </div>
+            <br>
+        </div>
+        <div class="admin-events">
+            <table class="events-table">
+                <tr>
+                    <th>ID</th>
+                    <th>VehicleID</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr *ngFor="let e of admin_page_events">
+                    <td>{{ e.eventID }}</td>
+                    <td>{{ e.vehicleID }}</td>
+                    <td>{{ e.eventDescription }}</td>
+                    <td>{{ e.eventDate.replace("T00:00:00","") }} </td>
+                    <td> <button class="edit-button">Edit</button> </td>
+                    <td> <button class="delete-button">Delete</button> </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="buttons">
+        <button class="home-button" routerLink="">Home</button>
+    </div>
+</div>

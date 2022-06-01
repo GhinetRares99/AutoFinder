@@ -33,6 +33,30 @@ import { EditEventComponent } from './Components/edit-event/edit-event.component
 import { VehicleDetailsComponent } from './Components/vehicle-details/vehicle-details.component';
 import { SendEmailComponent } from './Components/send-email/send-email.component';
 import { SendSMSComponent } from './Components/send-sms/send-sms.component';
+import { AdminComponent } from './Components/admin/admin.component';
+import { CategoryFilterPipe } from './Pipes/category-filter.pipe';
+import { CompanyFilterPipe } from './Pipes/company-filter.pipe';
+import { ModelFilterPipe } from './Pipes/model-filter.pipe';
+import { PriceFilterPipe } from './Pipes/price-filter.pipe';
+import { FabricationYearFilterPipe } from './Pipes/fabrication-year-filter.pipe';
+import { FuelFilterPipe } from './Pipes/fuel-filter.pipe';
+import { KilometresFilterPipe } from './Pipes/kilometres-filter.pipe';
+import { PowerFilterPipe } from './Pipes/power-filter.pipe';
+import { CapacityFilterPipe } from './Pipes/capacity-filter.pipe';
+import { TransmissionFilterPipe } from './Pipes/transmission-filter.pipe';
+import { PollutionNormFilterPipe } from './Pipes/pollution-norm-filter.pipe';
+import { DoorsFilterPipe } from './Pipes/doors-filter.pipe';
+import { ColorFilterPipe } from './Pipes/color-filter.pipe';
+import { WarrantyFilterPipe } from './Pipes/warranty-filter.pipe';
+import { CountryOfOriginFilterPipe } from './Pipes/country-of-origin-filter.pipe';
+import { FirstRegistrationFilterPipe } from './Pipes/first-registration-filter.pipe';
+import { RegisteredFilterPipe } from './Pipes/registered-filter.pipe';
+import { AdminUsersUserIDPipe } from './Pipes/admin-users-user-id.pipe';
+import { AdminUsersUsernamePipe } from './Pipes/admin-users-username.pipe';
+import { AdminVehiclesVehicleIDPipe } from './Pipes/admin-vehicles-vehicle-id.pipe';
+import { AdminVehiclesUserIDPipe } from './Pipes/admin-vehicles-user-id.pipe';
+import { AdminEventsEventIDPipe } from './Pipes/admin-events-event-id.pipe';
+import { AdminEventsVehicleIDPipe } from './Pipes/admin-events-vehicle-id.pipe';
 
 @NgModule({
   declarations: [
@@ -57,6 +81,30 @@ import { SendSMSComponent } from './Components/send-sms/send-sms.component';
     VehicleDetailsComponent,
     SendEmailComponent,
     SendSMSComponent,
+    AdminComponent,
+    CategoryFilterPipe,
+    CompanyFilterPipe,
+    ModelFilterPipe,
+    PriceFilterPipe,
+    FabricationYearFilterPipe,
+    FuelFilterPipe,
+    KilometresFilterPipe,
+    PowerFilterPipe,
+    CapacityFilterPipe,
+    TransmissionFilterPipe,
+    PollutionNormFilterPipe,
+    DoorsFilterPipe,
+    ColorFilterPipe,
+    WarrantyFilterPipe,
+    CountryOfOriginFilterPipe,
+    FirstRegistrationFilterPipe,
+    RegisteredFilterPipe,
+    AdminUsersUserIDPipe,
+    AdminUsersUsernamePipe,
+    AdminVehiclesVehicleIDPipe,
+    AdminVehiclesUserIDPipe,
+    AdminEventsEventIDPipe,
+    AdminEventsVehicleIDPipe,
   ],
   imports: [
     BrowserModule,

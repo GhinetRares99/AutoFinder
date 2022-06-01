@@ -1,2 +1,30 @@
 <app-top-bar></app-top-bar>
 <br><br>
+<div class="send-sms-container">
+    <h1 id="title-send-sms">Send an SMS to this user</h1>
+    <br><br>
+    <p class="sms-data">To: {{ this.stored_user_sms.phoneNumber }}</p>
+    <p class="sms-data">From: {{ this.session_user[0].phoneNumber }}</p>
+    <br><br>
+    <form [formGroup]="SendSMS" (ngSubmit)="sendSMS()">
+        <div class="form-inner-send-sms">
+            <div class="form-group">
+                <label>Text:</label>
+                <textarea style="resize:none;" class="form-control" rows="3" placeholder="Text" formControlName="smstext"></textarea>
+            </div>
+
+            <br>
+
+        </div>
+        <div class="buttons">
+            <br>
+            <button type="submit" class="submit-button">Send</button>
+            <button class="details-button" routerLink="../VehicleDetails">Details</button>
+        </div>
+    </form>
+</div>
+<br><br><br><br>
+<div class="send-sms-rules">
+    <h3>Rules:</h3>
+    <p>All fields are mandatory.</p>
+</div>

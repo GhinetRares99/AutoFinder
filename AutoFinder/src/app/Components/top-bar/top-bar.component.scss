@@ -118,6 +118,26 @@
     }
 }
 
+.admin-button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
+    font-size: large;
+    font-family: Trebuchet MS;
+    background: none;
+    transition-duration: 0.3s;
+    height: 100%;
+    padding: 10px;
+    margin-left: 30px;
+
+
+    &:hover {
+        background-color:rgb(112, 0, 0);
+    }
+}
+
 .signout-button{
     border: none;
     outline: none;
