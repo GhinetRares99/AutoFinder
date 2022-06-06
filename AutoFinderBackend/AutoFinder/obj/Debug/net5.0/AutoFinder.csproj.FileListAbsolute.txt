@@ -64,3 +64,6 @@ C:\Users\rares\OneDrive\Desktop\AutoFinder\AutoFinderBackend\AutoFinder\obj\Debu
 C:\Users\rares\OneDrive\Desktop\AutoFinder\AutoFinderBackend\AutoFinder\obj\Debug\net5.0\ref\AutoFinder.dll
 C:\Users\rares\OneDrive\Desktop\AutoFinder\AutoFinderBackend\AutoFinder\obj\Debug\net5.0\AutoFinder.pdb
 C:\Users\rares\OneDrive\Desktop\AutoFinder\AutoFinderBackend\AutoFinder\obj\Debug\net5.0\AutoFinder.genruntimeconfig.cache
+C:\Users\rares\OneDrive\Desktop\AutoFinder\AutoFinderBackend\AutoFinder\bin\Debug\net5.0\MailKit.dll
+C:\Users\rares\OneDrive\Desktop\AutoFinder\AutoFinderBackend\AutoFinder\bin\Debug\net5.0\MimeKit.dll
+C:\Users\rares\OneDrive\Desktop\AutoFinder\AutoFinderBackend\AutoFinder\bin\Debug\net5.0\BouncyCastle.Crypto.dll

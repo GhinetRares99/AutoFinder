@@ -5,7 +5,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Net.Mail;
+using MailKit;
+using MimeKit;
+using MailKit.Net.Smtp;
+
 
 namespace AutoFinder.Controllers
 {
@@ -13,7 +16,10 @@ namespace AutoFinder.Controllers
     [Route("[controller]")]
     public class UserController : Controller
     {
+   
         private readonly Context _db;
+
+        private readonly CompanyEmail ce = new CompanyEmail();
 
         public UserController(Context db)
         {
@@ -61,19 +67,28 @@ namespace AutoFinder.Controllers
                 await _db.SaveChangesAsync();
 
                 //Mail
-                MailMessage mail = new MailMessage("autofinder.company@gmail.com", user.Email);
+                MimeMessage mail = new MimeMessage();
+                mail.From.Add(new MailboxAddress(ce.appname, ce.appemail));
+                mail.To.Add(MailboxAddress.Parse(user.Email));
                 mail.Subject = "Account created";
-                mail.Body = string.Format("Your account was created. Your credentials are: username - {0}, password - {1}", user.UserName, user.Password);
-                mail.BodyEncoding = System.Text.Encoding.UTF8;
-
-                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                smtp.Credentials = new System.Net.NetworkCredential()
-                { 
-                    UserName = "autofinder.company@gmail.com",
-                    Password = "Asurbanipal1"
+                mail.Body = new TextPart("plain")
+                {
+                    Text = string.Format("You have successfully created your account! \n" +
+                    "Your credentials are: username - {0}, password - {1}.", user.UserName, user.Password)
                 };
-                smtp.EnableSsl = true;
-                smtp.Send(mail);
+
+                SmtpClient smtp = new SmtpClient();
+                try
+                {
+                    smtp.Connect(ce.appsmtp, ce.appport, true);
+                    smtp.Authenticate(ce.appemail, ce.apppassword);
+                    smtp.Send(mail);
+                    smtp.Disconnect(true);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
 
                 return Ok(user);
             }
@@ -106,10 +121,118 @@ namespace AutoFinder.Controllers
                 findUser.StateProvince = user.StateProvince;
                 findUser.Country = user.Country;
 
-                findUser.IsAdmin = user.IsAdmin;
+                await _db.SaveChangesAsync();
+
+                //Mail
+                MimeMessage mail = new MimeMessage();
+                mail.From.Add(new MailboxAddress(ce.appname, ce.appemail));
+                mail.To.Add(MailboxAddress.Parse(findUser.Email));
+                mail.Subject = "Account edited";
+                mail.Body = new TextPart("plain")
+                {
+                    Text = string.Format("You have successfully edited your account, {0}!", findUser.UserName)
+                };
+
+                SmtpClient smtp = new SmtpClient();
+                try 
+                { 
+                    smtp.Connect(ce.appsmtp, ce.appport, true);
+                    smtp.Authenticate(ce.appemail, ce.apppassword);
+                    smtp.Send(mail);
+                    smtp.Disconnect(true);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+                return Ok(user);
+            }
+        }
+
+        [EnableCors("CorsPolicy")]
+        [HttpPut]
+        [Route("/AutoFinder/AssignAdmin/{id}")]
+        public async Task<IActionResult> AssignAdmin(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                var findUser = await _db.User.FindAsync(id);
+                findUser.IsAdmin = true;
 
                 await _db.SaveChangesAsync();
-                return Ok(user);
+
+                //Mail
+                MimeMessage mail = new MimeMessage();
+                mail.From.Add(new MailboxAddress(ce.appname, ce.appemail));
+                mail.To.Add(MailboxAddress.Parse(findUser.Email));
+                mail.Subject = "Admin assigned";
+                mail.Body = new TextPart("plain")
+                {
+                    Text = string.Format("You have gained admin privileges, {0}!", findUser.UserName)
+                };
+
+                SmtpClient smtp = new SmtpClient();
+                try
+                {
+                    smtp.Connect(ce.appsmtp, ce.appport, true);
+                    smtp.Authenticate(ce.appemail, ce.apppassword);
+                    smtp.Send(mail);
+                    smtp.Disconnect(true);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+                return Ok(findUser);
+            }
+        }
+
+        [EnableCors("CorsPolicy")]
+        [HttpPut]
+        [Route("/AutoFinder/RemoveAdmin/{id}")]
+        public async Task<IActionResult> RemoveAdmin(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                var findUser = await _db.User.FindAsync(id);
+                findUser.IsAdmin = false;
+
+                await _db.SaveChangesAsync();
+
+                //Mail
+                MimeMessage mail = new MimeMessage();
+                mail.From.Add(new MailboxAddress(ce.appname, ce.appemail));
+                mail.To.Add(MailboxAddress.Parse(findUser.Email));
+                mail.Subject = "Admin removed";
+                mail.Body = new TextPart("plain")
+                {
+                    Text = string.Format("Your admin privileges have been removed, {0}!", findUser.UserName)
+                };
+
+                SmtpClient smtp = new SmtpClient();
+                try
+                {
+                    smtp.Connect(ce.appsmtp, ce.appport, true);
+                    smtp.Authenticate(ce.appemail, ce.apppassword);
+                    smtp.Send(mail);
+                    smtp.Disconnect(true);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+                return Ok(findUser);
             }
         }
 
@@ -126,8 +249,34 @@ namespace AutoFinder.Controllers
             else
             {
                 var deleteUser = await _db.User.FindAsync(id);
+                var deletedUserEmail = deleteUser.Email;
+
                 _db.User.Remove(deleteUser);
                 await _db.SaveChangesAsync();
+
+                //Mail
+                MimeMessage mail = new MimeMessage();
+                mail.From.Add(new MailboxAddress(ce.appname, ce.appemail));
+                mail.To.Add(MailboxAddress.Parse(deletedUserEmail));
+                mail.Subject = "Account deleted";
+                mail.Body = new TextPart("plain")
+                {
+                    Text = string.Format("You have successfully deleted your account!")
+                };
+
+                SmtpClient smtp = new SmtpClient();
+                try
+                {
+                    smtp.Connect(ce.appsmtp, ce.appport, true);
+                    smtp.Authenticate(ce.appemail, ce.apppassword);
+                    smtp.Send(mail);
+                    smtp.Disconnect(true);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
                 return Ok(deleteUser);
             }
         }

@@ -32,7 +32,6 @@ import { EventAddedComponent } from './Components/event-added/event-added.compon
 import { EditEventComponent } from './Components/edit-event/edit-event.component';
 import { VehicleDetailsComponent } from './Components/vehicle-details/vehicle-details.component';
 import { SendEmailComponent } from './Components/send-email/send-email.component';
-import { SendSMSComponent } from './Components/send-sms/send-sms.component';
 import { AdminComponent } from './Components/admin/admin.component';
 import { CategoryFilterPipe } from './Pipes/category-filter.pipe';
 import { CompanyFilterPipe } from './Pipes/company-filter.pipe';
@@ -57,6 +56,10 @@ import { AdminVehiclesVehicleIDPipe } from './Pipes/admin-vehicles-vehicle-id.pi
 import { AdminVehiclesUserIDPipe } from './Pipes/admin-vehicles-user-id.pipe';
 import { AdminEventsEventIDPipe } from './Pipes/admin-events-event-id.pipe';
 import { AdminEventsVehicleIDPipe } from './Pipes/admin-events-vehicle-id.pipe';
+import { AdminEditEventComponent } from './Components/admin-edit-event/admin-edit-event.component';
+import { AdminEditVehicleComponent } from './Components/admin-edit-vehicle/admin-edit-vehicle.component';
+import { AdminEditUserComponent } from './Components/admin-edit-user/admin-edit-user.component';
+import { EmailSuccessComponent } from './Components/email-success/email-success.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +83,6 @@ import { AdminEventsVehicleIDPipe } from './Pipes/admin-events-vehicle-id.pipe';
     EditEventComponent,
     VehicleDetailsComponent,
     SendEmailComponent,
-    SendSMSComponent,
     AdminComponent,
     CategoryFilterPipe,
     CompanyFilterPipe,
@@ -105,6 +107,10 @@ import { AdminEventsVehicleIDPipe } from './Pipes/admin-events-vehicle-id.pipe';
     AdminVehiclesUserIDPipe,
     AdminEventsEventIDPipe,
     AdminEventsVehicleIDPipe,
+    AdminEditEventComponent,
+    AdminEditVehicleComponent,
+    AdminEditUserComponent,
+    EmailSuccessComponent,
   ],
   imports: [
     BrowserModule,

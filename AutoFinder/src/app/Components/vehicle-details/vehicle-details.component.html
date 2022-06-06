@@ -44,12 +44,10 @@
         </div>
         <div class="det4">
             <div *ngIf="getSignedIn() == 'logged'">
-                <button (click)="this.SetUser(this.vehicle_seller[0])" routerLink="../SendSMS">Send SMS</button>
-                <br><br>
                 <button (click)="this.SetUser(this.vehicle_seller[0])" routerLink="../SendEmail">Send email</button>
             </div>
             <div *ngIf="getSignedIn() != 'logged'">
-                <p>Sign in to send messages!</p>
+                <p>Sign in to send emails!</p>
             </div>
         </div>
     </div>

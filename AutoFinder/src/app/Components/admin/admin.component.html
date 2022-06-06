@@ -40,7 +40,7 @@
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
-                <tr *ngFor="let u of admin_page_users">
+                <tr *ngFor="let u of admin_page_users | adminUsersUserID: users_userid | adminUsersUsername: users_username">
                     <td>{{ u.userID }}</td>
                     <td>{{ u.firstName }}</td>
                     <td>{{ u.lastName }}</td>
@@ -55,11 +55,11 @@
                     <td>{{ u.country }}</td>
                     <td>{{ u.isAdmin }}</td>
                     <td> 
-                        <button class="admin-button" *ngIf="!u.isAdmin">Assign admin</button>
-                        <button class="admin-button" *ngIf="u.isAdmin">Remove admin</button> 
+                        <button class="admin-button" *ngIf="!u.isAdmin" (click)="AssignAdmin(u.userID)">Assign admin</button>
+                        <button class="admin-button" *ngIf="u.isAdmin" (click)="RemoveAdmin(u.userID)">Remove admin</button> 
                     </td>
-                    <td> <button class="edit-button">Edit</button> </td>
-                    <td> <button class="delete-button">Delete</button> </td>
+                    <td> <button class="edit-button" (click)="this.SetStoredUser(u)" routerLink="../AdminEditUser">Edit</button> </td>
+                    <td> <button class="delete-button" (click)="DeleteUser(u.userID)">Delete</button> </td>
                 </tr>
             </table>
         </div>
@@ -110,7 +110,7 @@
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
-                <tr *ngFor="let v of admin_page_vehicles">
+                <tr *ngFor="let v of admin_page_vehicles | adminVehiclesVehicleID: vehicles_vehicleid | adminVehiclesUserID: vehicles_userid">
                     <td>{{ v.vehicleID }}</td>
                     <td>{{ v.userID }}</td>
                     <td>{{ v.vehicleCategory }}</td>
@@ -134,8 +134,8 @@
                     <td> <a href="{{ v.vehiclePhoto1 }}" class="fancybox" data-fancybox="admin-vehicles-pics"><img src="{{ v.vehiclePhoto1 }}"></a> </td>
                     <td> <a href="{{ v.vehiclePhoto2 }}" class="fancybox" data-fancybox="admin-vehicles-pics" *ngIf="v.vehiclePhoto2 != null"><img src="{{ v.vehiclePhoto2 }}"></a> </td>
                     <td> <a href="{{ v.vehiclePhoto3 }}" class="fancybox" data-fancybox="admin-vehicles-pics" *ngIf="v.vehiclePhoto3 != null"><img src="{{ v.vehiclePhoto3 }}"></a> </td>
-                    <td> <button class="edit-button">Edit</button> </td>
-                    <td> <button class="delete-button">Delete</button> </td>
+                    <td> <button class="edit-button" (click)="this.SetStoredVehicle(v)" routerLink="../AdminEditVehicle">Edit</button> </td>
+                    <td> <button class="delete-button" (click)="DeleteVehicle(v.vehicleID)">Delete</button> </td>
                 </tr>
             </table>
         </div>
@@ -167,13 +167,13 @@
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
-                <tr *ngFor="let e of admin_page_events">
+                <tr *ngFor="let e of admin_page_events | adminEventsEventID: events_eventid | adminEventsVehicleID: events_vehicleid">
                     <td>{{ e.eventID }}</td>
                     <td>{{ e.vehicleID }}</td>
                     <td>{{ e.eventDescription }}</td>
                     <td>{{ e.eventDate.replace("T00:00:00","") }} </td>
-                    <td> <button class="edit-button">Edit</button> </td>
-                    <td> <button class="delete-button">Delete</button> </td>
+                    <td> <button class="edit-button" (click)="this.SetStoredEvent(e)" routerLink="../AdminEditEvent">Edit</button> </td>
+                    <td> <button class="delete-button" (click)="DeleteEvent(e.eventID)">Delete</button> </td>
                 </tr>
             </table>
         </div>

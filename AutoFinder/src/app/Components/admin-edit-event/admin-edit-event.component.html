@@ -1,0 +1,35 @@
+<app-top-bar></app-top-bar>
+<br><br>
+<div class="admin-edit-event-container">
+    <h1 id="title-admin-edit-event">Edit the information of this event</h1>
+    <br><br>
+    <form [formGroup]="AdminEditEvent" (ngSubmit)="submitAdminEditedEvent()">
+        <div class="form-inner-admin-edit-event">
+            <div>
+                <label>Event description:</label>
+                <textarea style="resize:none;" id="ev-desc" class="form-control" rows="3" placeholder="Description" [(ngModel)]="this.stored_event_admin_edit.eventDescription" formControlName="eventdescription"></textarea>
+            </div>
+
+            <br>
+
+            <div>
+                <label>Event date:</label>
+                <input type="date" class="form-control" formControlName="eventdate" [(ngModel)]="this.stored_event_admin_edit.eventDate">
+            </div>
+
+            <br>
+
+        </div>
+        <div class="buttons">
+            <br>
+            <button type="submit" class="submit-button">Edit</button>
+            <button class="admin-button" routerLink="../Admin">Admin</button>
+        </div>
+    </form>
+
+</div>
+<br><br><br><br>
+<div class="admin-edit-event-rules">
+    <h3>Rules:</h3>
+    <p>All fields are mandatory.</p>
+</div>

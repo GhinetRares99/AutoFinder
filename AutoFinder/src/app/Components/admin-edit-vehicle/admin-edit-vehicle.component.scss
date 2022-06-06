@@ -1,4 +1,4 @@
-#title-send-sms{
+#title-admin-edit-vehicle{
     text-align: center;
     font-family: Trebuchet MS;
 }
@@ -7,17 +7,54 @@ label{
     font-family: Trebuchet MS;
 }
 
-.sms-data{
-    text-align: center;
-    font-style: italic;
-}
-
-.form-inner-send-sms{
-    margin-left: auto;
-    margin-right: auto;
+.form-inner-admin-edit-vehicle{
+    display: grid;
+    column-gap: 50px;
     padding-left: 50px;
     padding-right: 50px;
-    max-width: 600px;
+}
+
+.ae1{
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.ae2{
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.ae3{
+    grid-column: 3;
+    grid-row: 1;
+}
+
+#euro1{
+    background: darkred;
+}
+
+#euro2{
+    background: rgb(165, 2, 2);
+}
+
+#euro3{
+    background: rgb(211, 172, 0);
+}
+
+#euro4{
+    background: rgb(103, 190, 45);
+}
+
+#euro5{
+    background: rgb(32, 139, 0);
+}
+
+#euro6{
+    background: rgb(25, 104, 1);
+}
+
+#pltn{
+    color: black;
 }
 
 .buttons{
@@ -28,18 +65,18 @@ label{
     border: none;
     outline: none;
     cursor: pointer;
-    background-color: darkred;
+    background-color: green;
     color: white;
     font-family: Trebuchet MS;
     padding: 10px;
     transition-duration: 0.3s;
 
     &:hover {
-        background-color:rgb(112, 0, 0);
+        background-color:rgb(0, 100, 0);
     }
 }
 
-.details-button{
+.admin-button{
     margin-left: 20px;
     border: none;
     outline: none;
@@ -55,6 +92,6 @@ label{
     }
 }
 
-.send-sms-rules{
+.admin-vehicle-edit-rules{
     padding-left: 50px;
 }

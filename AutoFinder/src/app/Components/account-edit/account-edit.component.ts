@@ -20,7 +20,7 @@ export class AccountEditComponent implements OnInit {
     username: new FormControl('',Validators.required),
     password: new FormControl('',[Validators.required,Validators.minLength(5)]),
     email: new FormControl('',Validators.required),
-    phonenumber: new FormControl('',[Validators.required,Validators.maxLength(10)]),
+    phonenumber: new FormControl('',[Validators.required,Validators.maxLength(13)]),
 
     streetname: new FormControl('',Validators.required),
     streetnumber: new FormControl('',[Validators.required,Validators.min(1)]),

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SendSMSComponent } from './send-sms.component';
+import { AdminEditEventComponent } from './admin-edit-event.component';
 
-describe('SendSMSComponent', () => {
-  let component: SendSMSComponent;
-  let fixture: ComponentFixture<SendSMSComponent>;
+describe('AdminEditEventComponent', () => {
+  let component: AdminEditEventComponent;
+  let fixture: ComponentFixture<AdminEditEventComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SendSMSComponent ]
+      declarations: [ AdminEditEventComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SendSMSComponent);
+    fixture = TestBed.createComponent(AdminEditEventComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

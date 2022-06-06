@@ -5,8 +5,19 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class AdminVehiclesVehicleIDPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(vh: any[], vehicles_vehicleid: number): any[] {
+    if(!vh)
+    {
+      return []
+    }
+
+    if(vehicles_vehicleid == 0){
+      return vh
+    }
+
+    return vh.filter(v => {
+      return v.vehicleID == vehicles_vehicleid
+    })
   }
 
 }

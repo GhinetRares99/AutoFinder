@@ -5,8 +5,19 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class AdminUsersUsernamePipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(us: any[], users_username: string): any[] {
+    if(!us)
+    {
+      return []
+    }
+
+    if(!users_username){
+      return us
+    }
+
+    return us.filter(u => {
+      return u.userName.includes(users_username)
+    })
   }
 
 }

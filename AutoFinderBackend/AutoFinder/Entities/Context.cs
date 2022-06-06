@@ -23,7 +23,7 @@ namespace AutoFinder.Entities
             //User
             modelBuilder.Entity<User>()
                 .Property(phone => phone.PhoneNumber)
-                .HasMaxLength(10);
+                .HasMaxLength(13);
 
             modelBuilder.Entity<User>()
                 .Property(admin => admin.IsAdmin)

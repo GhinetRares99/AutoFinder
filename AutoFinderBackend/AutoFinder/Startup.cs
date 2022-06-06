@@ -30,6 +30,7 @@ namespace AutoFinder
         {
             services.AddDbContext<Context>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
+
             services.AddCors(options =>
             {
                 options.AddPolicy(name: "CorsPolicy",

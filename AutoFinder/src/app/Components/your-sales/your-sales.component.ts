@@ -27,8 +27,7 @@ export class YourSalesComponent implements OnInit {
 
   DeleteVehicle(data:any){
       this.DV.deleteVehicle(data)
-      //window.location.reload()
-      
+     
       this.router.navigateByUrl("", {skipLocationChange: true}).then(() => {
         this.router.navigate(["../YourSales"])
       })

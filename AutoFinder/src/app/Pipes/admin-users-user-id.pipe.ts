@@ -5,8 +5,19 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class AdminUsersUserIDPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(us: any[], users_userid: number): any[] {
+    if(!us)
+    {
+      return []
+    }
+
+    if(users_userid == 0){
+      return us
+    }
+
+    return us.filter(u => {
+      return u.userID == users_userid
+    })
   }
 
 }
