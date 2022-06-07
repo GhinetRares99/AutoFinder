@@ -1,6 +1,7 @@
 import { Serializer } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Sanitizer } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 import { SearchService } from 'src/app/Services/search.service';
 import { StoreVehicleService } from 'src/app/Services/store-vehicle.service';
 
@@ -54,14 +55,15 @@ export class SearchComponent implements OnInit {
 
   public registered: string = ""
 
-  constructor(private SRC: SearchService, private STV: StoreVehicleService) { }
+  constructor(private SRC: SearchService, private STV: StoreVehicleService, public sanitizer: Sanitizer) { }
 
   ngOnInit(): void {
     this.SRC.search().subscribe((result)=>{
       this.vehicles = result
       console.log(this.vehicles)
     })
-
+    
+  
   }
 
   SetStoredVehicle(data:any){
@@ -95,6 +97,9 @@ export class SearchComponent implements OnInit {
     this.registered = ""
   }
   
+  getSignedIn(){
+    return sessionStorage.getItem('isSignedIn')
+  }
 
 
 

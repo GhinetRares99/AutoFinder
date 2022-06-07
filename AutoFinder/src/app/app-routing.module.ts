@@ -111,6 +111,7 @@ const routes: Routes = [
   {
     path: 'VehicleDetails',
     component: VehicleDetailsComponent,
+    canActivate: [SignedInGuard]
   },
 
   {

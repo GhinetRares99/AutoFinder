@@ -17,10 +17,13 @@ export class VehicleDetailsComponent implements OnInit {
 
   public vehicle_events: any = []
 
+  public session_user: any = []
+
   constructor(private VHS: VehicleSellerService, private VE: VehicleEventsService, private STU: StoreUserService) { }
 
   ngOnInit(): void {
     this.stored_vehicle_details = JSON.parse(localStorage.getItem('stored_vehicle') as string)
+    this.session_user = JSON.parse(sessionStorage.getItem('c_user') as string)
     this.VHS.vehicleSeller(this.stored_vehicle_details.userID).subscribe((result) => {
       this.vehicle_seller = result
       console.log(this.vehicle_seller)

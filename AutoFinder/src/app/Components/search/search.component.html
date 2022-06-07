@@ -253,7 +253,8 @@
                 <h2>{{ vhcl.vehicleCompany }} {{ vhcl.vehicleModel }}</h2>
                 <p>Price: {{ vhcl.vehiclePrice }}€</p>
                 <p>Fabrication year: {{ vhcl.vehicleFabricationYear }}</p>
-                <button class="details-button" (click)="this.SetStoredVehicle(vhcl)" routerLink="../VehicleDetails">Details</button>
+                <button *ngIf="getSignedIn() == 'logged'" class="details-button" (click)="this.SetStoredVehicle(vhcl)" routerLink="../VehicleDetails">Details</button>
+                <p *ngIf="getSignedIn() != 'logged'">Sign in to see the details!</p>
                 <br><br>
             </div>
         </div>
