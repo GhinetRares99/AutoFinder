@@ -58,9 +58,7 @@ export class SellComponent implements OnInit {
             vehiclethumbnail: readthumbnail.result
           });
         }
-      } 
-      
-                   
+      }                
   }
 
   photooneChange(event:any){
@@ -75,8 +73,7 @@ export class SellComponent implements OnInit {
           vehiclephoto1: readphoto1.result
         });
       }
-    } 
-                
+    }            
   }
 
   phototwoChange(event:any){
@@ -91,8 +88,7 @@ export class SellComponent implements OnInit {
           vehiclephoto2: readphoto2.result
         });
       }
-    }     
-           
+    }              
   }
 
   photothreeChange(event:any){
@@ -107,8 +103,7 @@ export class SellComponent implements OnInit {
           vehiclephoto3: readphoto3.result
         });
       }
-    }   
-              
+    }              
   }
 
   submitVehicle(){

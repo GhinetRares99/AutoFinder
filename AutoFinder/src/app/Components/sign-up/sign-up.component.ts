@@ -3,6 +3,7 @@ import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SignUpService } from 'src/app/Services/sign-up.service';
 import { Router } from '@angular/router';
+import { FindByUsernameService } from 'src/app/Services/find-by-username.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -28,7 +29,7 @@ export class SignUpComponent implements OnInit {
 
   })
 
-  constructor(private SUU: SignUpService, private router: Router) { }
+  constructor(private SUU: SignUpService, private FBU: FindByUsernameService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -37,8 +38,19 @@ export class SignUpComponent implements OnInit {
      console.log(this.SignUpUser.value)  
      if(this.SignUpUser.valid)
      {
-       this.SUU.signUpUser(this.SignUpUser.value)  
-       this.router.navigate(["../AccountCreated"])
+       this.FBU.findUserByUsername(this.SignUpUser.value.username).subscribe((utl) => {
+          console.log(utl)
+          if(Object.keys(utl).length != 0)
+          {
+            window.alert("This account already exists!")
+          }
+          else
+          {
+            this.SUU.signUpUser(this.SignUpUser.value)  
+            this.router.navigate(["../AccountCreated"])
+          }
+       })
+
      }
      else
      {

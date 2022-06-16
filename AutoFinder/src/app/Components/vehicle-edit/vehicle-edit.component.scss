@@ -1,97 +1,125 @@
-#title-vehicle-edit{
-    text-align: center;
-    font-family: Trebuchet MS;
-}
+@media (min-width: 0px){      
+    #title-vehicle-edit{
+        text-align: center;
+        font-family: Trebuchet MS;
+    }
 
-label{
-    font-family: Trebuchet MS;
-}
+    label{
+        font-family: Trebuchet MS;
+    }
 
-.form-inner-vehicle-edit{
-    display: grid;
-    column-gap: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
-}
+    .form-inner-vehicle-edit{
+        display: grid;
+        column-gap: 50px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
 
-.ev1{
-    grid-column: 1;
-    grid-row: 1;
-}
+    .ev1{
+        grid-column: 1;
+        grid-row: 1;
+    }
 
-.ev2{
-    grid-column: 2;
-    grid-row: 1;
-}
+    .ev2{
+        grid-column: 2;
+        grid-row: 1;
+    }
 
-.ev3{
-    grid-column: 3;
-    grid-row: 1;
-}
+    .ev3{
+        grid-column: 3;
+        grid-row: 1;
+    }
 
-#euro1{
-    background: darkred;
-}
+    #euro1{
+        background: darkred;
+    }
 
-#euro2{
-    background: rgb(165, 2, 2);
-}
+    #euro2{
+        background: rgb(165, 2, 2);
+    }
 
-#euro3{
-    background: rgb(211, 172, 0);
-}
+    #euro3{
+        background: rgb(211, 172, 0);
+    }
 
-#euro4{
-    background: rgb(103, 190, 45);
-}
+    #euro4{
+        background: rgb(103, 190, 45);
+    }
 
-#euro5{
-    background: rgb(32, 139, 0);
-}
+    #euro5{
+        background: rgb(32, 139, 0);
+    }
 
-#euro6{
-    background: rgb(25, 104, 1);
-}
+    #euro6{
+        background: rgb(25, 104, 1);
+    }
 
-#pltn{
-    color: black;
-}
+    #pltn{
+        color: black;
+    }
 
-.buttons{
-    text-align: center;
-}
+    .buttons{
+        text-align: center;
+    }
 
-.submit-button{
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background-color: green;
-    color: white;
-    font-family: Trebuchet MS;
-    padding: 10px;
-    transition-duration: 0.3s;
+    .submit-button{
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: green;
+        color: white;
+        font-family: Trebuchet MS;
+        padding: 10px;
+        transition-duration: 0.3s;
 
-    &:hover {
-        background-color:rgb(0, 100, 0);
+        &:hover {
+            background-color:rgb(0, 100, 0);
+        }
+    }
+
+    .your-sales-button{
+        margin-left: 20px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: darkred;
+        color: white;
+        font-family: Trebuchet MS;
+        padding: 10px;
+        transition-duration: 0.3s;
+
+        &:hover {
+            background-color:rgb(112, 0, 0);
+        }
+    }
+
+    .vehicle-edit-rules{
+        padding-left: 50px;
+        padding-right: 50px;
     }
 }
 
-.your-sales-button{
-    margin-left: 20px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background-color: darkred;
-    color: white;
-    font-family: Trebuchet MS;
-    padding: 10px;
-    transition-duration: 0.3s;
+@media (max-width: 950px){
 
-    &:hover {
-        background-color:rgb(112, 0, 0);
+    .ev1{
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .ev2{
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .ev3{
+        grid-column: 2;
+        grid-row: 1;
     }
 }
 
-.vehicle-edit-rules{
-    padding-left: 50px;
+@media (max-width: 700px){
+
+    .form-inner-vehicle-edit{
+        display: block;
+    }
 }

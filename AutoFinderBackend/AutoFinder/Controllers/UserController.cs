@@ -51,6 +51,14 @@ namespace AutoFinder.Controllers
         }
 
         [EnableCors("CorsPolicy")]
+        [HttpGet]
+        [Route("/AutoFinder/FindUserByUsername/{username}")]
+        public IEnumerable<User> FindUserByUsername(string username)
+        {
+            return _db.User.Where(usr => usr.UserName.Equals(username));
+        }
+
+        [EnableCors("CorsPolicy")]
         [HttpPost]
         [Route("/AutoFinder/AddUser")]
         public async Task<IActionResult> AddUser(User user)
