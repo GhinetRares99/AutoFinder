@@ -13,4 +13,14 @@
         <button class="account-button" routerLink="../Account">{{this.session_user[0].userName}}</button>
         <button class="signout-button" routerLink="" (click)="SignOut()">Sign Out</button>
     </div>
+    <div class="div_four" *ngIf="getSignedIn() == 'logged'">
+        <button class="menu" (click)="Show()"><i class="fa fa-bars"></i></button>
+        <div class="menu_buttons" style="display:none;" id="mb">
+            <button class="sell-button" routerLink="../Sell">Sell</button>
+            <button class="your-sales-button" routerLink="../YourSales">Your sales</button>
+            <button class="admin-button" *ngIf="this.session_user[0].isAdmin" routerLink="../Admin">Admin</button>
+            <button class="account-button" routerLink="../Account">{{this.session_user[0].userName}}</button>
+            <button class="signout-button" routerLink="" (click)="SignOut()">Sign Out</button>
+        </div>
+    </div>
 </div>

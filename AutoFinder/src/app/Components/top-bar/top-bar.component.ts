@@ -16,6 +16,7 @@ export class TopBarComponent implements OnInit {
     this.session_user = JSON.parse(sessionStorage.getItem('c_user') as string)
     console.log(JSON.parse(sessionStorage.getItem('c_user') as string))
     //console.log(sessionStorage.getItem('isSignedIn'))
+    
   }
 
   getSignedIn(){
@@ -28,4 +29,14 @@ export class TopBarComponent implements OnInit {
     sessionStorage.removeItem('c_user')
   }
 
+  Show(){
+    if(document.getElementById("mb")!.style.display == "none")
+    {
+      document.getElementById("mb")!.style.display = "block"
+    }
+    else
+    {
+      document.getElementById("mb")!.style.display = "none"
+    }
+  }
 }
