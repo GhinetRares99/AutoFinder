@@ -155,3 +155,15 @@
         display: block;
     }
 }
+
+@media (max-width: 650px){
+    .vh1 a:nth-child(4){
+        display: none;
+    }
+}
+
+@media (max-width: 800px){
+    .vh1 a:nth-child(5){
+        display: none;
+    }
+}
